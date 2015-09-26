@@ -15,10 +15,10 @@ namespace cnn {
     }
 
   html to_html(const link& l) {
-    return a({ href(l.url) }, l.content);
+    return a({ to_attribute(l) }, l.content);
     }
 
-  html cnn_header(
+  html header(
     const std::vector<link>& unselected,
     const std::vector<link>& with_selected) {
 
@@ -44,7 +44,7 @@ namespace cnn {
     return table({}, tr({}, table_content));
     }
 
-  html cnn_footer(const std::vector<link>& unselected) {
+  html footer(const std::vector<link>& unselected) {
     auto left  = std::vector<attribute> { id("unbordered") };
     auto right = std::vector<attribute> { id("bordered") };
 
